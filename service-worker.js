@@ -1,7 +1,7 @@
-<script>
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', function() {
-    navigator.serviceWorker.register('worker.js?'+Math.random()+'')
-  });
-}
-</script>
+self.addEventListener('install', (e) => {
+  console.log('Service Worker instalado');
+});
+
+self.addEventListener('fetch', (e) => {
+  console.log('Interceptando solicitud:', e.request.url);
+});
