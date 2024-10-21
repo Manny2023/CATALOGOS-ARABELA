@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ff0000">
+  <title>Catalogos Virtuales</title>
+<link rel="manifest" href="manifest.json">
+  <link rel="icon" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhEcpPgnYvjnyx0mHwYbKkhQYKokAcka1crTuTkmNd_441YsXv9x7hyBEQpL0DouYhgZ4fWv-Q_tIXAx3DD5TWNMxVRNx1jd_UEIDptJ21jRuD3JBKTaFXlAotE0qCX3gMx0NFM9dl1fg5EuwvchqX31DEHDCt871iAHunzIwHAxZMjn8GPBZeivvUJoH4/s180/APLETOUCH.png" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhEcpPgnYvjnyx0mHwYbKkhQYKokAcka1crTuTkmNd_441YsXv9x7hyBEQpL0DouYhgZ4fWv-Q_tIXAx3DD5TWNMxVRNx1jd_UEIDptJ21jRuD3JBKTaFXlAotE0qCX3gMx0NFM9dl1fg5EuwvchqX31DEHDCt871iAHunzIwHAxZMjn8GPBZeivvUJoH4/s180/APLETOUCH.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhv-HD6ILoBk6wmebVXTYseC072iVi0pPKKo2P_jgoeT5RoTDCoA6qA0NUerL_rUudLPJ5KNKeznrcGEzNKX-XZJllHprXO8bm1WVDqXFXo01d-Q_ek_bJS-FF-vFPggFgucbq1-VcKX1r1re7nPue5xw1QffFsRs_bhu56Z9dhkWWkGXP_CyTXEr3Y9Ys/s32/32A.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhz3t9u_fzEXgwibf_dvPdWlT8UVOB81m8FTMVzCuDUC5UnEFKCy6cwI2kGpo8kl55V7Knzs8QKar1Oj7g8ztanUtHIiqsu8xCQdB9_XLGvsbOcSQs0tF0vbYPKhMQ_emq8VfRyHiFr8SUYFEPYzt8Mf6kGRlg7KK9g2OBYUdHI25KrXBD7K_fs-DtDR6E/s16/16A.png">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+    }
+    header {
+        background-color: #800080; /* Fondo MORADO */
+
+      color: white;
+      padding: 15px;
+      text-align: center;
+      position: relative;
+      font-size: 24px; /* Aumentar tamaño de fuente */
+      font-weight: bold; /* Negrita para resaltar las letras */
+    }
+    .menu-btn {
+      font-size: 24px;
+      cursor: pointer;
+      color: white;
+      position: absolute;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    nav {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      background-color: #333;
+      overflow-x: hidden;
+      transition: 0.5s;
+      padding-top: 60px;
+    }
+    nav a {
+      padding: 10px 20px;
+      text-decoration: none;
+      font-size: 18px;
+      color: white;
+      display: block;
+      transition: 0.3s;
+    }
+    nav a:hover {
+      background-color: #575757;
+    }
+    nav img {
+      width: 100%;
+      height: auto;
+      margin-bottom: 20px;
+    }
+    .menu-close-btn {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      font-size: 36px;
+    }
+    main {
+      padding: 20px;
+      margin-top: 20px;
+      text-align: center;
+    }
+    main h1 {
+      margin-bottom: 20px;
+    }
+    .button-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .button-container img {
+      margin: 10px 0;
+      width: 80%;
+      max-width: 200px;
+    }
+    .install-banner {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      display: none;
+      z-index: 999;
+    }
+    .install-banner button {
+      background-color: #6200ea;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .install-banner button:hover {
+      background-color: #4500b3;
+    }
+    @media screen and (max-width: 768px) {
+      header {
+        font-size: 18px;
+      }
+      nav a {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <span class="menu-btn" onclick="openMenu()">☰</span>
+    CATALOGOS ARABELA
+  </header>
+
+  <nav id="myNav">
+    <a href="javascript:void(0)" class="menu-close-btn" onclick="closeMenu()">&times;</a>
+    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjwW4yqaRydOjg4im6TUo_drye02KOeStZrS7cfk6KpDF_zZbUmvGePejensxHBpNssDqLvCDB1vEWzs8IL42nRPkwd9wo6fDhO5V_s_Z607sP9NeehQIwplgFW4UBxxZvL7od6XQ5k9oA_UA4nfsdALVUwjN5OcC4qm7R08RIqqP59luVWrictPtF3fNg/s192/192A.png" alt="Imagen  alt="Imagen del Menú">
+     <a href="https://manny2023.github.io/CATALOGOSVIRTUALES/">Página 1</a>
+    <a href="https://manny2023.github.io/CATALOGOSVIRTUALES/PAG2.HTML">Página 2</a>
+    <a href="https://manny2023.github.io/CATALOGOSVIRTUALES/PAG3.HTML.html">Página 3</a>
+    <a href="https://manny2023.github.io/CATALOGOSVIRTUALES/PAG4.HTML">Página 4</a>
+    <a href="pagina5.html">Página 5</a>
+  </nav>
+
+    <main>
+    <iframe src="https://catalogosarabela.blogspot.com/p/inicio-arabela-descargar-pdf-body-font.html" style="width: 100%; height: 800px; border: none;"></iframe>
+  </main>
+
+  <script>
+    function openMenu() {
+      document.getElementById("myNav").style.width = "250px";
+    }
+
+    function closeMenu() {
+      document.getElementById("myNav").style.width = "0";
+    }
+  </script>
+
+</html>
